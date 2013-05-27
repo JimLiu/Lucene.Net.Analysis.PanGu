@@ -1,0 +1,1 @@
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Demo\bin\Release\PanGu.Lucene.Demo.exe.config

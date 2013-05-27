@@ -1,0 +1,9 @@
+D:\GitHub\Lucene.Net.Analysis.PanGu\Bin\Release\PanGu.HighLight.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\Bin\Release\PanGu.HighLight.pdb
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\obj\Release\PanGu.HighLight.csprojResolveAssemblyReference.cache
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\obj\Release\PanGu.HighLight.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\obj\Release\PanGu.HighLight.pdb
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\bin\Release\PanGu.HighLight.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\bin\Release\PanGu.HighLight.pdb
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\bin\Release\PanGu.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\bin\Release\PanGu.pdb

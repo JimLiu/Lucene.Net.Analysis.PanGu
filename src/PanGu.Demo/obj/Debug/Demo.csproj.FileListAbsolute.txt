@@ -1,0 +1,10 @@
+C:\Users\jimliu\Downloads\pangusegment-96133\Bin\Debug\Demo.exe
+C:\Users\jimliu\Downloads\pangusegment-96133\Bin\Debug\Demo.pdb
+C:\Users\jimliu\Downloads\pangusegment-96133\PanGuSegment\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
+C:\Users\jimliu\Downloads\pangusegment-96133\PanGuSegment\Demo\obj\Debug\Demo.FormDemo.resources
+C:\Users\jimliu\Downloads\pangusegment-96133\PanGuSegment\Demo\obj\Debug\Demo.Properties.Resources.resources
+C:\Users\jimliu\Downloads\pangusegment-96133\PanGuSegment\Demo\obj\Debug\Demo.csproj.GenerateResource.Cache
+C:\Users\jimliu\Downloads\pangusegment-96133\PanGuSegment\Demo\obj\Debug\Demo.exe
+C:\Users\jimliu\Downloads\pangusegment-96133\PanGuSegment\Demo\obj\Debug\Demo.pdb
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Demo\obj\Debug\Demo.exe
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Demo\obj\Debug\Demo.pdb

@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="INFINITIVE" xml:space="preserve">
+    <value>beat	beat	beaten
+become	became	become
+begin	began	begun
+bend	bent	bent
+bet	bet	bet
+bid	bid	bid
+bite	bit	bitten
+bleed	bled	bled
+blow	blew	blown
+break	broke	broken
+breed	bred	bred
+bring	brought	brought
+broadcast	broadcast	broadcast
+build	built	built
+buy	bought	bought
+catch	caught	caught
+choose	chose	chosen
+cling	clung	clung
+come	came	come
+cost	cost	cost
+creep	crept	crept
+cut	cut	cut
+deal	dealt	dealt
+dig	dug	dug
+do	did	done
+draw	drew	drawn
+dream	dreamed	dreamt
+drink	drank	drunk
+drive	drove	driven
+eat	ate	eaten
+fall	fell	fallen
+feed	fed	fed
+feel	felt	felt
+fight	fought	fought
+find	found	found
+flee	fled	fled
+fly	flew	flown
+forbid	forbade	forbidden
+forget	forgot	forgotten
+forgive	forgave	forgiven
+freeze	froze	frozen
+get	got	gotten
+give	gave	given
+go	went	gone
+goose	geese	goose
+grow	grew	grown
+hang	hung	hung
+have	had	had
+hear	heard	heard
+hide	hid	hidden
+hit	hit	hit
+hold	held	held
+hurt	hurt	hurt
+keep	kept	kept
+know	knew	known
+lay	laid	laid
+lead	led	led
+leave	left	left
+lend	lent	lent
+bet	bet	bet
+bid	bid	bid
+broadcast	broadcast	broadcast
+hit	hit	hit
+hurt	hurt	hurt
+let	let	let
+put	put	put
+quit	quit	quit
+set	set	set
+shut	shut	shut
+spread	spread	spread
+upset	upset	upset
+have	had	had
+make	made	made
+hear	heard	heard
+lay	laid	laid
+pay	paid	paid
+say	said	said
+sell	sold	sold
+tell	told	told
+bend	bent	bent
+build	built	built
+creep	crept	crept
+deal	dealt	dealt
+dream	dreamed	dreamt
+feel	felt	felt
+keep	kept	kept
+leave	left	left
+lend	lent	lent
+lose	lost	lost
+mean	meant	meant
+send	sent	sent
+sleep	slept	slept
+spend	spent	spent
+sweep	swept	swept
+bring	brought	brought
+buy	bought	bought
+catch	caught	caught
+fight	fought	fought
+seek	sought	sought
+teach	taught	taught
+think	thought	thought
+blow	blew	blown
+do	did	done
+draw	drew	drawn
+go	went	gone
+grow	grew	grown
+know	knew	known
+lie	lay	lain
+see	saw	seen
+shine	shined	shone
+shine	shined	shone
+let	let	let
+lie	lay	lain
+light	lit/lighted	lit/lighted
+lose	lost	lost
+make	made	made
+mean	meant	meant
+meet	met	met
+pay	paid	paid
+put	put	put
+quit	quit	quit
+read	read	read
+ride	rode	ridden
+ring	rang	rung
+rise	rose	risen
+run	ran	run
+say	said	said
+see	saw	seen
+seek	sought	sought
+sell	sold	sold
+send	sent	sent
+set	set	set
+shake	shook	shaken
+shine	shone	shone
+shoot	shot	shot
+show	showed	shown
+shrink	shrank	shrunk
+shut	shut	shut
+sing	sang	sung
+sink	sank	sunk
+sit	sat	sat
+sleep	slept	slept
+slide	slid	slid
+speak	spoke	spoken
+speed	sped	sped
+spend	spent	spent
+spit	spat	spat
+spread	spread	spread
+stand	stood	stood
+steal	stole	stolen
+stick	stuck	stuck
+strike	struck	struck
+swear	swore	sworn
+sweep	swept	swept
+swim	swam	swum
+swing	swung	swung
+take	took	taken
+teach	taught	taught
+tear	tore	torn
+tell	told	told
+think	thought	thought
+throw	threw	thrown
+understand	understood	understood
+upset	upset	upset
+wake	woke	woken
+wear	wore	worn
+win	won	won
+wind	wound	wound
+withdraw	withdrew	withdrawn
+write	wrote	written
+show	showed	shown
+swear	swore	sworn
+throw	threw	thrown
+wear	wore	worn
+withdraw	withdrew	withdrawn
+beat	beat	beaten
+bite	bit	bitten
+choose	chose	chosen
+drive	drove	driven
+eat	ate	eaten
+fall	fell	fallen
+forbid	forbade	forbidden
+forget	forgot	forgotten
+forgive	forgave	forgiven
+freeze	froze	frozen
+get	got	gotten
+give	gave	given
+hide	hid	hidden
+ride	rode	ridden
+rise	rose	risen
+shake	shook	shaken
+speak	spoke	spoken
+steal	stole	stolen
+take	took	taken
+wake	woke	woken
+write	wrote	written
+bleed	bled	bled
+breed	bred	bred
+feed	fed	fed
+flee	fled	fled
+hold	held	held
+lead	led	led
+speed	sped	sped
+cling	clung	clung
+dig	dug	dug
+drink	drank	drunk
+hang	hung	hung
+ring	rang	rung
+run	ran	run
+shrink	shrank	shrunk
+sing	sang	sung
+sink	sank	sunk
+stick	stuck	stuck
+strike	struck	struck
+swim	swam	swum
+swing	swung	swung
+win	won	won
+light	lit	lit
+shoot	shot	shot
+sit	sat	sat
+slide	slid	slid
+spit	spat	spat</value>
+  </data>
+</root>

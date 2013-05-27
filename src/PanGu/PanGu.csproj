@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{091E1C60-F77B-45A1-844C-86C5F508B57B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PanGu</RootNamespace>
+    <AssemblyName>PanGu</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalyzerResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnalyzerResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Dict\DictionaryLoader.cs" />
+    <Compile Include="Dict\StopWord.cs" />
+    <Compile Include="Dict\Synonym.cs" />
+    <Compile Include="Dict\Wildcard.cs" />
+    <Compile Include="Dict\WordDictionary.cs" />
+    <Compile Include="Framework\AppendList.cs" />
+    <Compile Include="Framework\DFA.cs" />
+    <Compile Include="Framework\Instance.cs" />
+    <Compile Include="Framework\Lexical.cs" />
+    <Compile Include="Framework\Lock.cs" />
+    <Compile Include="Framework\PorterStemmer.cs" />
+    <Compile Include="Framework\QuickSort.cs" />
+    <Compile Include="Framework\Regex.cs" />
+    <Compile Include="Framework\File.cs" />
+    <Compile Include="Framework\Path.cs" />
+    <Compile Include="Framework\Stream.cs" />
+    <Compile Include="Framework\SuperLinkedList.cs" />
+    <Compile Include="Framework\XmlSerialization.cs" />
+    <Compile Include="ICustomRule.cs" />
+    <Compile Include="Match\ChsFullTextMatch.cs" />
+    <Compile Include="Dict\ChsName.cs" />
+    <Compile Include="Match\IChsFullTextMatch.cs" />
+    <Compile Include="Match\MatchOptions.cs" />
+    <Compile Include="Match\MatchParameter.cs" />
+    <Compile Include="POS.cs" />
+    <Compile Include="Segment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setting\PanGuSettings.cs" />
+    <Compile Include="Setting\SettingLoader.cs" />
+    <Compile Include="WordAttribute.cs" />
+    <Compile Include="WordInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AnalyzerResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AnalyzerResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ChsDoubleName1.txt" />
+    <EmbeddedResource Include="Resources\ChsDoubleName2.txt" />
+    <EmbeddedResource Include="Resources\ChsSingleName.txt" />
+    <EmbeddedResource Include="Resources\Stopword.txt" />
+    <EmbeddedResource Include="Resources\Synonym.txt" />
+    <EmbeddedResource Include="Resources\Wildcard.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Dict.dct" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,5 @@
+D:\GitHub\Lucene.Net.Analysis.PanGu\Bin\Debug\PanGu.HighLight.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\Bin\Debug\PanGu.HighLight.pdb
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\obj\Debug\PanGu.HighLight.csprojResolveAssemblyReference.cache
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\obj\Debug\PanGu.HighLight.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.HighLight\obj\Debug\PanGu.HighLight.pdb

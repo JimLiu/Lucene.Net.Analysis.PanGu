@@ -1,0 +1,11 @@
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\bin\Release\PanGu.Lucene.Analyzer.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\bin\Release\PanGu.Lucene.Analyzer.pdb
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\bin\Release\Lucene.Net.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\bin\Release\PanGu.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\bin\Release\PanGu.pdb
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\bin\Release\Lucene.Net.pdb
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\bin\Release\Lucene.Net.xml
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\obj\Release\PanGu.Lucene.Analyzer.csprojResolveAssemblyReference.cache
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\obj\Release\PanGu.Lucene.Analyzer.dll
+D:\GitHub\Lucene.Net.Analysis.PanGu\src\PanGu.Lucene.Analyzer\obj\Release\PanGu.Lucene.Analyzer.pdb

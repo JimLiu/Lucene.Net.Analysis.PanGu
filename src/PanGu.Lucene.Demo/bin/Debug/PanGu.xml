@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PanGuSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.codeplex.com/pangusegment">
+  <DictionaryPath>Dictionaries</DictionaryPath>
+  <MatchOptions>
+    <ChineseNameIdentify>true</ChineseNameIdentify>
+    <FrequencyFirst>false</FrequencyFirst>
+    <MultiDimensionality>false</MultiDimensionality>
+    <EnglishMultiDimensionality>true</EnglishMultiDimensionality>
+    <FilterStopWords>true</FilterStopWords>
+    <IgnoreSpace>true</IgnoreSpace>
+    <ForceSingleWord>false</ForceSingleWord>
+    <TraditionalChineseEnabled>false</TraditionalChineseEnabled>
+    <OutputSimplifiedTraditional>false</OutputSimplifiedTraditional>
+    <UnknownWordIdentify>true</UnknownWordIdentify>
+    <FilterEnglish>false</FilterEnglish>
+    <FilterNumeric>false</FilterNumeric>
+    <IgnoreCapital>false</IgnoreCapital>
+    <EnglishSegment>false</EnglishSegment>
+    <SynonymOutput>false</SynonymOutput>
+    <WildcardOutput>false</WildcardOutput>
+    <WildcardSegment>false</WildcardSegment>
+    <CustomRule>false</CustomRule>
+  </MatchOptions>
+  <Parameters>
+    <UnknowRank>1</UnknowRank>
+    <BestRank>5</BestRank>
+    <SecRank>3</SecRank>
+    <ThirdRank>2</ThirdRank>
+    <SingleRank>1</SingleRank>
+    <NumericRank>1</NumericRank>
+    <EnglishRank>5</EnglishRank>
+    <EnglishLowerRank>3</EnglishLowerRank>
+    <EnglishStemRank>2</EnglishStemRank>
+    <SymbolRank>1</SymbolRank>
+    <SimplifiedTraditionalRank>1</SimplifiedTraditionalRank>
+    <SynonymRank>1</SynonymRank>
+    <WildcardRank>1</WildcardRank>
+    <FilterEnglishLength>0</FilterEnglishLength>
+    <FilterNumericLength>0</FilterNumericLength>
+    <CustomRuleAssemblyFileName>CustomRuleExample.dll</CustomRuleAssemblyFileName>
+    <CustomRuleFullClassName>CustomRuleExample.PickupVersion</CustomRuleFullClassName>
+    <Redundancy>0</Redundancy>
+  </Parameters>
+</PanGuSettings>
