@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using Lucene.Net.Analysis;
 using PanGu;
+using PanGu.Match;
 using Lucene.Net.Analysis.Tokenattributes;
 
 namespace Lucene.Net.Analysis.PanGu
@@ -14,7 +15,7 @@ namespace Lucene.Net.Analysis.PanGu
         private static bool _Inited = false;
 
         private WordInfo[] _WordList;
-        private int _Position = -1; //´Ê»ãÔÚ»º³åÖĞµÄÎ»ÖÃ.
+        private int _Position = -1; //è¯æ±‡åœ¨ç¼“å†²ä¸­çš„ä½ç½®.
         private bool _OriginalResult = false;
         string _InputText;
 
@@ -61,7 +62,14 @@ namespace Lucene.Net.Analysis.PanGu
             typeAtt = AddAttribute<ITypeAttribute>();
         }
 
-        public PanGuTokenizer(System.IO.TextReader input, bool originalResult):this(input)
+        public PanGuTokenizer(System.IO.TextReader input, bool originalResult)
+            : this(input, originalResult, null, null)
+        {
+
+        }
+
+        public PanGuTokenizer(System.IO.TextReader input, bool originalResult, MatchOptions options, MatchParameter parameters)
+            : this(input, options, parameters)
         {
             _OriginalResult = originalResult;
         }
@@ -74,7 +82,7 @@ namespace Lucene.Net.Analysis.PanGu
             }
         }
 
-        public PanGuTokenizer(System.IO.TextReader input)
+        public PanGuTokenizer(System.IO.TextReader input, MatchOptions options, MatchParameter parameters)
             : base(input) 
         {
             lock (_LockObj)
@@ -113,7 +121,7 @@ namespace Lucene.Net.Analysis.PanGu
             else
             {
                 global::PanGu.Segment segment = new Segment();
-                ICollection<WordInfo> wordInfos = segment.DoSegment(_InputText);
+                ICollection<WordInfo> wordInfos = segment.DoSegment(_InputText, options, parameters);
                 _WordList = new WordInfo[wordInfos.Count];
                 wordInfos.CopyTo(_WordList, 0);
             }
@@ -134,7 +142,7 @@ namespace Lucene.Net.Analysis.PanGu
             return false;
         }
 
-        //DotLuceneµÄ·Ö´ÊÆ÷¼òµ¥À´Ëµ£¬¾ÍÊÇÊµÏÖTokenizerµÄNext·½·¨£¬°Ñ·Ö½â³öÀ´µÄÃ¿Ò»¸ö´Ê¹¹ÔìÎªÒ»¸öToken£¬ÒòÎªTokenÊÇDotLucene·Ö´ÊµÄ»ù±¾µ¥Î»¡£
+        //DotLuceneçš„åˆ†è¯å™¨ç®€å•æ¥è¯´ï¼Œå°±æ˜¯å®ç°Tokenizerçš„Nextæ–¹æ³•ï¼ŒæŠŠåˆ†è§£å‡ºæ¥çš„æ¯ä¸€ä¸ªè¯æ„é€ ä¸ºä¸€ä¸ªTokenï¼Œå› ä¸ºTokenæ˜¯DotLuceneåˆ†è¯çš„åŸºæœ¬å•ä½ã€‚
         public Token Next()
         {
             if (_OriginalResult)
@@ -151,8 +159,8 @@ namespace Lucene.Net.Analysis.PanGu
                 return new Token(retStr, 0, retStr.Length);
             }
 
-            int length = 0;    //´Ê»ãµÄ³¤¶È.
-            int start = 0;     //¿ªÊ¼Æ«ÒÆÁ¿.
+            int length = 0;    //è¯æ±‡çš„é•¿åº¦.
+            int start = 0;     //å¼€å§‹åç§»é‡.
 
             while (true)
             {
