@@ -1,16 +1,14 @@
 ﻿using Lucene.Net.Analysis.PanGu;
-using Lucene.Net.Analysis.Tokenattributes;
 using Lucene.Net.Documents;
 using Lucene.Net.Index;
 using Lucene.Net.QueryParsers.Classic;
 using Lucene.Net.Search;
 using Lucene.Net.Store;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using Xunit;
-using static Lucene.Net.Util.AttributeSource;
+
 using LVERSION = global::Lucene.Net.Util.LuceneVersion;
 
 namespace PanGu.Lucene.Analyzer.Tests
@@ -29,7 +27,7 @@ namespace PanGu.Lucene.Analyzer.Tests
             Console.OutputEncoding = Encoding.UTF8;
 
             this._indexDir = new DirectoryInfo("bin");
-            this._analyzer = new PanGuAnalyzer();
+            this._analyzer = new PanGuAnalyzer(true);
             this._samples = File.ReadAllLines(@"Resources/Sample.txt");
             this.BuidIndex();
         }
@@ -44,7 +42,7 @@ namespace PanGu.Lucene.Analyzer.Tests
                 foreach (string text in this._samples)
                 {
                     var doc = new Document();
-                    doc.Add(new StringField("body", text, Field.Store.YES));
+                    doc.Add(new Field("body", text, Field.Store.YES, Field.Index.ANALYZED));
                     iw.AddDocument(doc);
                     Console.WriteLine("Indexed doc: {0}", text);
                 }
@@ -60,9 +58,9 @@ namespace PanGu.Lucene.Analyzer.Tests
             using (var indexer = DirectoryReader.Open(FSDirectory.Open(this._indexDir)))
             {
                 var searcher = new IndexSearcher(indexer);
-                var qp = new QueryParser(LVERSION.LUCENE_48, "body", this._analyzer);
+                var qp = new QueryParser(LVERSION.LUCENE_CURRENT, "body", this._analyzer);
                 var query = qp.Parse(keyword);
-                Console.WriteLine("query> {0}", query);
+                Console.WriteLine("query> {0}", query.ToString());
                 var tds = searcher.Search(query, 10);
                 Console.WriteLine("TotalHits: " + tds.TotalHits);
                 foreach (var sd in tds.ScoreDocs)
