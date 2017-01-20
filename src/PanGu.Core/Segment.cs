@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using PanGu.Framework;
+using PanGu.Match;
 
 namespace PanGu
 {
@@ -145,7 +146,7 @@ namespace PanGu
                     wordInfoList.Remove(removeItem);
                 }
 
-                WordInfo newWordInfo = new WordInfo(new PanGu.Dict.PositionLength(first, last - first, 
+                WordInfo newWordInfo = new WordInfo(new PanGu.Dict.PositionLength(first, last - first,
                     wa), orginalText, _Parameters);
 
                 newWordInfo.WordType = WordType.English;
@@ -205,7 +206,7 @@ namespace PanGu
             for (int i = 0; i < text.Length; i++)
             {
                 char c = text[i];
-       
+
                 dfaResult = lexical.Input(c, i);
 
                 switch (dfaResult)
@@ -361,13 +362,13 @@ namespace PanGu
                             }
                         }
 
-                        PanGu.Framework.AppendList<Dict.PositionLength> pls = _WordDictionary.GetAllMatchs(inputText, _Options.ChineseNameIdentify);
-                        PanGu.Match.ChsFullTextMatch chsMatch = new PanGu.Match.ChsFullTextMatch(_WordDictionary);
+                        var pls = _WordDictionary.GetAllMatchs(inputText, _Options.ChineseNameIdentify);
+                        var chsMatch = new ChsFullTextMatch(_WordDictionary);
                         chsMatch.Options = _Options;
                         chsMatch.Parameters = _Parameters;
-                        SuperLinkedList<WordInfo> chsMatchWords = chsMatch.Match(pls.Items, cur.Value.Word, pls.Count);
+                        var chsMatchWords = chsMatch.Match(pls.Items, cur.Value.Word, pls.Count);
 
-                        SuperLinkedListNode<WordInfo> curChsMatch = chsMatchWords.First;
+                        var curChsMatch = chsMatchWords.First;
                         while (curChsMatch != null)
                         {
                             WordInfo wi = curChsMatch.Value;
@@ -385,13 +386,13 @@ namespace PanGu
 
                                     if (originalWordType == WordType.SimplifiedChinese)
                                     {
-                                        newWord = Microsoft.VisualBasic.Strings.StrConv(wi.Word, 
+                                        newWord = Microsoft.VisualBasic.Strings.StrConv(wi.Word,
                                             Microsoft.VisualBasic.VbStrConv.TraditionalChinese, 0);
                                         wt = WordType.TraditionalChinese;
                                     }
                                     else
                                     {
-                                        newWord = Microsoft.VisualBasic.Strings.StrConv(wi.Word, 
+                                        newWord = Microsoft.VisualBasic.Strings.StrConv(wi.Word,
                                             Microsoft.VisualBasic.VbStrConv.SimplifiedChinese, 0);
                                         wt = WordType.SimplifiedChinese;
                                     }
@@ -544,12 +545,9 @@ namespace PanGu
                         cur = cur.Next;
                         break;
                 }
-
             }
 
-
             return result;
-
         }
 
         private void FilterStopWord(SuperLinkedList<WordInfo> wordInfoList)
@@ -563,7 +561,7 @@ namespace PanGu
 
             while (cur != null)
             {
-                if (_StopWord.IsStopWord(cur.Value.Word, 
+                if (_StopWord.IsStopWord(cur.Value.Word,
                     _Options.FilterEnglish, _Parameters.FilterEnglishLength,
                     _Options.FilterNumeric, _Parameters.FilterNumericLength))
                 {
@@ -659,7 +657,7 @@ namespace PanGu
             //用户自定义规则
             if (_Options.CustomRule)
             {
-                ICustomRule rule = CustomRule.GetCustomRule(_Parameters.CustomRuleAssemblyFileName, 
+                ICustomRule rule = CustomRule.GetCustomRule(_Parameters.CustomRuleAssemblyFileName,
                     _Parameters.CustomRuleFullClassName);
 
                 if (rule != null)

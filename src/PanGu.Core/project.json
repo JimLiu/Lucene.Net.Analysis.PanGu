@@ -42,7 +42,8 @@
         "System.Runtime.Extensions": "4.3.0",
         "System.Runtime.Loader": "4.3.0",
         "System.Runtime.Serialization.Formatters": "4.3.0",
-        "System.Xml.XmlSerializer": "4.3.0"
+        "System.Xml.XmlSerializer": "4.3.0",
+        "Microsoft.VisualBasic": "10.1.0"
       }
     },
     "net451": {
@@ -54,7 +55,8 @@
         "System.Runtime.Serialization": "4.0.0.0",
         "System.Xml": "4.0.0.0",
         "System.Xml.XmlSerializer": "4.0.0.0",
-        "System.Xml.Serialization": "4.0.0.0"
+        "System.Xml.Serialization": "4.0.0.0",
+        "Microsoft.VisualBasic": "10.0.0.0"
       }
     }
   }
