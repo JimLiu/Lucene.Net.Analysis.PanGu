@@ -8,6 +8,7 @@ using Lucene.Net.Store;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using Xunit;
 using static Lucene.Net.Util.AttributeSource;
 using LVERSION = global::Lucene.Net.Util.LuceneVersion;
@@ -25,6 +26,8 @@ namespace PanGu.Lucene.Analyzer.Tests
 
         public PanGuAnalyzerTests()
         {
+            Console.OutputEncoding = Encoding.UTF8;
+
             this._indexDir = new DirectoryInfo("bin");
             this._analyzer = new PanGuAnalyzer();
             this._samples = File.ReadAllLines(@"Resources/Sample.txt");
@@ -43,10 +46,10 @@ namespace PanGu.Lucene.Analyzer.Tests
                     var doc = new Document();
                     doc.Add(new StringField("body", text, Field.Store.YES));
                     iw.AddDocument(doc);
-                    Debug.WriteLine("Indexed doc: {0}", text);
+                    Console.WriteLine("Indexed doc: {0}", text);
                 }
                 iw.Commit();
-                Debug.WriteLine("Building index done!");
+                Console.WriteLine("Building index done!");
             }
         }
 
@@ -59,15 +62,15 @@ namespace PanGu.Lucene.Analyzer.Tests
                 var searcher = new IndexSearcher(indexer);
                 var qp = new QueryParser(LVERSION.LUCENE_48, "body", this._analyzer);
                 var query = qp.Parse(keyword);
-                Debug.WriteLine("query> {0}", query);
+                Console.WriteLine("query> {0}", query);
                 var tds = searcher.Search(query, 10);
-                Debug.WriteLine("TotalHits: " + tds.TotalHits);
+                Console.WriteLine("TotalHits: " + tds.TotalHits);
                 foreach (var sd in tds.ScoreDocs)
                 {
-                    Debug.WriteLine(sd.Score);
+                    Console.WriteLine(sd.Score);
                     var doc = searcher.Doc(sd.Doc);
                     var body = doc.Get("body");
-                    Debug.WriteLine(body);
+                    Console.WriteLine(body);
                     Assert.False(string.IsNullOrWhiteSpace(body));
                 }
             }
