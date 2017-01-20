@@ -6,6 +6,8 @@ using Lucene.Net.Search;
 using Lucene.Net.Store;
 using System;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using Xunit;
 
@@ -28,7 +30,20 @@ namespace PanGu.Lucene.Analyzer.Tests
 
             this._indexDir = new DirectoryInfo("bin");
             this._analyzer = new PanGuAnalyzer(true);
-            this._samples = File.ReadAllLines(@"Resources/Sample.txt");
+
+            var asm = this.GetType().GetTypeInfo().Assembly;
+            var resourceNames = asm.GetManifestResourceNames();
+            var sampleResourceName = resourceNames.First(x => x.EndsWith("Sample.txt"));
+
+            using (var stream = asm.GetManifestResourceStream(sampleResourceName))
+            {
+                using (TextReader tr = new StreamReader(stream))
+                {
+                    var allText = tr.ReadToEnd();
+                    this._samples = allText.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                }
+            }
+
             this.BuidIndex();
         }
 
