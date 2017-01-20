@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace System.Runtime.Serialization
 {
 
-    internal class SerializationInfo
+    public class SerializationInfo
     {
 
 

@@ -1,0 +1,7 @@
+﻿2016-05-05 Dos.PanGu（v2.4.4）
+	*）修复GetFullContent()方法在匹配到关键词时并不是返回完整的内容。
+	*）修改.net framework为4.0。
+	*）Dos.PanGu.HighLight增加GetFullContent()方法，返回完整高亮后的内容。
+
+2016-05-01 Dos.PanGu（v2.4.1）
+	*）使Dos.PanGu支持Lucene.net v3.0.3最新版。

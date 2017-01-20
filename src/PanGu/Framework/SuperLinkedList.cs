@@ -17,10 +17,11 @@
 
 namespace System.Collections.Generic
 {
+    using Reflection;
     using System;
     using System.Diagnostics;
     using System.Runtime.Serialization;
-    using System.Security.Permissions;
+    //using System.Security.Permissions;
 
     [Serializable()]
     [System.Runtime.InteropServices.ComVisible(false)]
@@ -558,8 +559,8 @@ namespace System.Collections.Generic
                 // For example, if the element type of the Array is derived from T,
                 // we can't figure out if we can successfully copy the element beforehand.
                 //
-                Type targetType = array.GetType().GetElementType();
-                Type sourceType = typeof(T);
+                var targetType = array.GetType().GetElementType().GetTypeInfo();
+                var sourceType = typeof(T).GetTypeInfo();
                 if (!(targetType.IsAssignableFrom(sourceType) || sourceType.IsAssignableFrom(targetType)))
                 {
                     throw new ArgumentException("SR.Invalid_Array_Type");
