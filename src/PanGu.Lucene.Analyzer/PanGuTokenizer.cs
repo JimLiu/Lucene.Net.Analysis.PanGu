@@ -166,7 +166,7 @@ namespace Lucene.Net.Analysis.PanGu
         {
             base.Reset();
 
-            _InputText = base.input.ReadToEnd();
+            //_InputText = base.input.ReadToEnd();
 
             if (string.IsNullOrEmpty(_InputText))
             {

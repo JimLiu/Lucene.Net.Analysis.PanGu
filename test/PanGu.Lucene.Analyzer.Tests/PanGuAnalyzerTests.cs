@@ -29,7 +29,7 @@ namespace PanGu.Lucene.Analyzer.Tests
             Console.OutputEncoding = Encoding.UTF8;
 
             this._indexDir = new DirectoryInfo("bin");
-            this._analyzer = new PanGuAnalyzer(true);
+            this._analyzer = new PanGuAnalyzer(false);
 
             var asm = this.GetType().GetTypeInfo().Assembly;
             var resourceNames = asm.GetManifestResourceNames();
@@ -69,11 +69,11 @@ namespace PanGu.Lucene.Analyzer.Tests
         [Fact]
         public void SearchTest()
         {
-            var keyword = "社交";
+            var keyword = "京华";
             using (var indexer = DirectoryReader.Open(FSDirectory.Open(this._indexDir)))
             {
                 var searcher = new IndexSearcher(indexer);
-                var qp = new QueryParser(LVERSION.LUCENE_CURRENT, "body", this._analyzer);
+                var qp = new QueryParser(LVERSION.LUCENE_48, "body", new PanGuAnalyzer(true));
                 var query = qp.Parse(keyword);
                 Console.WriteLine("query> {0}", query.ToString());
                 var tds = searcher.Search(query, 10);
