@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -74,7 +74,7 @@ namespace PanGu.Dict
 
     public struct PositionLength
     {
-        public int Level ;
+        public int Level;
         public int Position;
         public int Length;
         public WordAttribute WordAttr;
@@ -168,12 +168,13 @@ namespace PanGu.Dict
 
             Stream stream = null;
             if (File.Exists(fileName))
-            { 
+            {
                 stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             }
-            else {
+            else
+            {
                 stream = GetStreamFromResources(Path.GetFileName(fileName));
-            }             
+            }
 
             byte[] version = new byte[32];
             stream.Read(version, 0, version.Length);
@@ -204,7 +205,7 @@ namespace PanGu.Dict
 
                 WordAttribute dict = new WordAttribute(word, pos, frequency);
                 //string.Intern(dict.Word);
-               
+
                 dictFile.Dicts.Add(dict);
             }
 
@@ -382,7 +383,7 @@ namespace PanGu.Dict
 
                 if (i < keyText.Length - 1)
                 {
-                    uint doubleChar = ((uint)keyText[i] * 65536) + keyText[i+1];
+                    uint doubleChar = ((uint)keyText[i] * 65536) + keyText[i + 1];
 
                     if (_DoubleCharDict.TryGetValue(doubleChar, out fwa))
                     {
@@ -395,7 +396,7 @@ namespace PanGu.Dict
                     continue;
                 }
 
-                long tripleChar = ((long)keyText[i]) * 0x100000000 + (uint)(keyText[i + 1] * 65536) + keyText[i+2];
+                long tripleChar = ((long)keyText[i]) * 0x100000000 + (uint)(keyText[i + 1] * 65536) + keyText[i + 2];
 
                 if (_TripleCharDict.TryGetValue(tripleChar, out lenList))
                 {
@@ -457,7 +458,7 @@ namespace PanGu.Dict
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="textFile"></param>
@@ -522,7 +523,7 @@ namespace PanGu.Dict
                     {
                         bool find = false;
                         int i;
-                        for(i = 0 ; i < wordLenArray.Length; i++)
+                        for (i = 0; i < wordLenArray.Length; i++)
                         {
                             byte len = wordLenArray[i];
                             if (len == key.Length)

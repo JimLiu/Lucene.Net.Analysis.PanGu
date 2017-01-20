@@ -1,21 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using Lucene.Net.Analysis;
+using Lucene.Net.Analysis.Tokenattributes;
 using PanGu;
 using PanGu.Match;
-using Lucene.Net.Analysis.Tokenattributes;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace Lucene.Net.Analysis.PanGu
 {
 
-    public sealed class PanGuTokenizer
+    public class PanGuTokenizer
         : Tokenizer
     {
 
         private static object _LockObj = new object();
         private static bool _Inited = false;
+
+        private readonly MatchOptions _options;
+        private readonly MatchParameter _parameters;
 
         private WordInfo[] _WordList;
         private int _Position = -1; //词汇在缓冲中的位置.
@@ -24,7 +27,7 @@ namespace Lucene.Net.Analysis.PanGu
 
         // this tokenizer generates three attributes:
         // offset, positionIncrement and type
-        private ITermAttribute termAtt;
+        private ICharTermAttribute termAtt;
         private IOffsetAttribute offsetAtt;
         private IPositionIncrementAttribute posIncrAtt;
         private ITypeAttribute typeAtt;
@@ -59,11 +62,20 @@ namespace Lucene.Net.Analysis.PanGu
         private void Init()
         {
             InitPanGuSegment();
-            termAtt = AddAttribute<ITermAttribute>();
+            termAtt = AddAttribute<ICharTermAttribute>();
             offsetAtt = AddAttribute<IOffsetAttribute>();
             posIncrAtt = AddAttribute<IPositionIncrementAttribute>();
             typeAtt = AddAttribute<ITypeAttribute>();
         }
+
+
+        //public PanGuTokenizer()
+        //{
+        //    lock (_LockObj)
+        //    {
+        //        Init();
+        //    }
+        //}
 
         public PanGuTokenizer(TextReader input, bool originalResult)
             : this(input, originalResult, null, null)
@@ -76,62 +88,30 @@ namespace Lucene.Net.Analysis.PanGu
             _OriginalResult = originalResult;
         }
 
-        //public PanGuTokenizer()
-        //{
-        //    lock (_LockObj)
-        //    {
-        //        Init();
-        //    }
-        //}
-
         public PanGuTokenizer(TextReader input, MatchOptions options, MatchParameter parameters)
-            : base(input)
+            : this(AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY, input, options, parameters)
+        {
+        }
+
+        public PanGuTokenizer(AttributeFactory factory, TextReader input, MatchOptions options, MatchParameter parameters)
+            : base(factory, input)
         {
             lock (_LockObj)
             {
                 Init();
             }
-
-            _InputText = base.input.ReadToEnd();
-
-            if (string.IsNullOrEmpty(_InputText))
-            {
-                char[] readBuf = new char[1024];
-                int relCount = base.input.Read(readBuf, 0, readBuf.Length);
-                StringBuilder inputStr = new StringBuilder(readBuf.Length);
-
-                while (relCount > 0)
-                {
-                    inputStr.Append(readBuf, 0, relCount);
-                    relCount = input.Read(readBuf, 0, readBuf.Length);
-                }
-
-                if (inputStr.Length > 0)
-                {
-                    _InputText = inputStr.ToString();
-                }
-            }
-
-            if (string.IsNullOrEmpty(_InputText))
-            {
-                _WordList = new WordInfo[0];
-            }
-            else
-            {
-                global::PanGu.Segment segment = new Segment();
-                ICollection<WordInfo> wordInfos = segment.DoSegment(_InputText, options, parameters);
-                _WordList = new WordInfo[wordInfos.Count];
-                wordInfos.CopyTo(_WordList, 0);
-            }
+            this._options = options;
+            this._parameters = parameters;
         }
 
-        public override bool IncrementToken()
+        public sealed override bool IncrementToken()
         {
             ClearAttributes();
             Token word = Next();
             if (word != null)
             {
-                termAtt.SetTermBuffer(word.ToString());
+                var buffer = word.Buffer();
+                termAtt.CopyBuffer(buffer, 0, buffer.Length);
                 offsetAtt.SetOffset(word.StartOffset(), word.EndOffset());
                 typeAtt.Type = word.Type;
                 return true;
@@ -182,14 +162,49 @@ namespace Lucene.Net.Analysis.PanGu
             return null;
         }
 
+        public override void Reset()
+        {
+            base.Reset();
+
+            _InputText = base.input.ReadToEnd();
+
+            if (string.IsNullOrEmpty(_InputText))
+            {
+                char[] readBuf = new char[1024];
+                int relCount = base.input.Read(readBuf, 0, readBuf.Length);
+                var inputStr = new StringBuilder(readBuf.Length);
+
+                while (relCount > 0)
+                {
+                    inputStr.Append(readBuf, 0, relCount);
+                    relCount = input.Read(readBuf, 0, readBuf.Length);
+                }
+
+                if (inputStr.Length > 0)
+                {
+                    _InputText = inputStr.ToString();
+                }
+            }
+
+            if (string.IsNullOrEmpty(_InputText))
+            {
+                _WordList = new WordInfo[0];
+            }
+            else
+            {
+                var segment = new Segment();
+                var wordInfos = segment.DoSegment(_InputText, this._options, this._parameters);
+                this._WordList = wordInfos.ToArray();
+            }
+        }
+
         public ICollection<WordInfo> SegmentToWordInfos(String str)
         {
             if (string.IsNullOrEmpty(str))
             {
                 return new LinkedList<WordInfo>();
             }
-
-            global::PanGu.Segment segment = new Segment();
+            var segment = new Segment();
             return segment.DoSegment(str);
         }
 

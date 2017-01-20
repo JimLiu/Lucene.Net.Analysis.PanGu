@@ -16,7 +16,10 @@
   },
 
   "buildOptions": {
-    "embed": [ "*.resx" ]
+    "embed": [
+      "*.resx",
+      "Resources/*.*"
+    ]
   },
 
   "dependencies": {

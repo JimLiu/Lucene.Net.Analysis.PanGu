@@ -1,3 +1,4 @@
+using Lucene.Net.Analysis.Core;
 using PanGu.Match;
 using System.IO;
 
@@ -36,7 +37,8 @@ namespace Lucene.Net.Analysis.PanGu
         public override TokenStreamComponents CreateComponents(string fieldName, TextReader reader)
         {
             var result = new PanGuTokenizer(reader, _OriginalResult, _options, _parameters);
-            return new TokenStreamComponents(result);
+            var finalStream = (TokenStream)new LowerCaseFilter(Net.Util.LuceneVersion.LUCENE_48, result);
+            return new TokenStreamComponents(result, finalStream);
         }
 
     }

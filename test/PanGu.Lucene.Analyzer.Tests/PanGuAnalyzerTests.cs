@@ -1,4 +1,5 @@
 ﻿using Lucene.Net.Analysis.PanGu;
+using Lucene.Net.Analysis.Tokenattributes;
 using Lucene.Net.Documents;
 using Lucene.Net.Index;
 using Lucene.Net.QueryParsers.Classic;
@@ -8,7 +9,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using Xunit;
-
+using static Lucene.Net.Util.AttributeSource;
 using LVERSION = global::Lucene.Net.Util.LuceneVersion;
 
 namespace PanGu.Lucene.Analyzer.Tests
@@ -35,6 +36,8 @@ namespace PanGu.Lucene.Analyzer.Tests
             using (var iw = new IndexWriter(FSDirectory.Open(this._indexDir),
                new IndexWriterConfig(LVERSION.LUCENE_48, this._analyzer)))
             {
+                iw.DeleteAll();
+                iw.Commit();
                 foreach (string text in this._samples)
                 {
                     var doc = new Document();
@@ -43,7 +46,7 @@ namespace PanGu.Lucene.Analyzer.Tests
                     Debug.WriteLine("Indexed doc: {0}", text);
                 }
                 iw.Commit();
-                Debug.WriteLine("Building index done!\r\n\r\n");
+                Debug.WriteLine("Building index done!");
             }
         }
 
