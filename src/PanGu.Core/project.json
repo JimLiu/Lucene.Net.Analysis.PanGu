@@ -16,7 +16,7 @@
   },
 
   "buildOptions": {
-    "embed": [ "AnalyzerResource.resx" ]
+    "embed": [ "*.resx" ]
   },
 
   "dependencies": {
