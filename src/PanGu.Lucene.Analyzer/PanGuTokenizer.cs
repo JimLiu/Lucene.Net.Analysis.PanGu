@@ -10,7 +10,7 @@ using Lucene.Net.Analysis.Tokenattributes;
 namespace Lucene.Net.Analysis.PanGu
 {
 
-    public class PanGuTokenizer
+    public sealed class PanGuTokenizer
         : Tokenizer
     {
 
@@ -103,7 +103,6 @@ namespace Lucene.Net.Analysis.PanGu
                 while (relCount > 0)
                 {
                     inputStr.Append(readBuf, 0, relCount);
-
                     relCount = input.Read(readBuf, 0, readBuf.Length);
                 }
 

@@ -15,6 +15,10 @@
     }
   },
 
+  "buildOptions": {
+    "embed": [ "AnalyzerResource.resx" ]
+  },
+
   "dependencies": {
   },
 
