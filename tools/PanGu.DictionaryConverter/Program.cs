@@ -19,7 +19,6 @@ namespace PanGu.DictionaryConverter
             var dict = new WordDictionary();
 
             dict.Load(Path.Combine(resDir.FullName, "Dict.dct"));
-            dict.
 
             Console.WriteLine("Press any key to continue...");
         }

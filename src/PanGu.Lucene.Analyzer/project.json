@@ -1,0 +1,39 @@
+﻿{
+  "title": "PanGu.Lucene.Analyzer",
+  "version": "1.0.0-*",
+  "description": ".NET Core version of PanGu.Lucene.Analyzer.",
+  "authors": [ "yuleyule66", "LonghronShen" ],
+
+  "packOptions": {
+    "summary": ".NET Core version of PanGu.Lucene.Analyzer.",
+    "owners": [ "yuleyule66", "LonghronShen" ],
+    "requireLicenseAcceptance": false,
+    "tags": [ "PanGu", "Lucene", ".NET", "Core", "Analysis" ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/ouraspnet/OurAspNet.Lucene.Net.Analysis.PanGu.git"
+    }
+  },
+
+  "dependencies": {
+    "Lucene.Net.Analysis.Common": "4.8.0-alpha",
+    "PanGu.Core": "1.0.0-*"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": [
+        "dotnet5.6",
+        "portable-net45+win8"
+      ],
+      "buildOptions": {
+        "define": [ "NETCORE" ]
+      },
+      "dependencies": {
+        "NETStandard.Library": "1.6.0"
+      }
+    },
+    "net451": {
+    }
+  }
+}
