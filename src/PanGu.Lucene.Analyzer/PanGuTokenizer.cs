@@ -32,28 +32,17 @@ namespace Lucene.Net.Analysis.PanGu
         private IPositionIncrementAttribute posIncrAtt;
         private ITypeAttribute typeAtt;
 
-        private static void InitPanGuSegment()
-        {
-            //Init PanGu Segment.
-            if (!_Inited)
-            {
-                global::PanGu.Segment.Init();
-                _Inited = true;
-            }
-        }
-
         /// <summary>
-        /// Init PanGu Segment
+        /// Initialize PanGu Segment
         /// </summary>
         /// <param name="fileName">PanGu.xml file path</param>
-        static public void InitPanGuSegment(string fileName)
+        public static void InitPanGuSegment(string fileName = null)
         {
             lock (_LockObj)
             {
-                //Init PanGu Segment.
                 if (!_Inited)
                 {
-                    global::PanGu.Segment.Init(fileName);
+                    Segment.Init(fileName);
                     _Inited = true;
                 }
             }
@@ -67,15 +56,6 @@ namespace Lucene.Net.Analysis.PanGu
             posIncrAtt = AddAttribute<IPositionIncrementAttribute>();
             typeAtt = AddAttribute<ITypeAttribute>();
         }
-
-
-        //public PanGuTokenizer()
-        //{
-        //    lock (_LockObj)
-        //    {
-        //        Init();
-        //    }
-        //}
 
         public PanGuTokenizer(TextReader input, bool originalResult)
             : this(input, originalResult, null, null)
@@ -166,36 +146,8 @@ namespace Lucene.Net.Analysis.PanGu
         {
             base.Reset();
 
-            //_InputText = base.input.ReadToEnd();
-
-            if (string.IsNullOrEmpty(_InputText))
-            {
-                char[] readBuf = new char[1024];
-                int relCount = base.input.Read(readBuf, 0, readBuf.Length);
-                var inputStr = new StringBuilder(readBuf.Length);
-
-                while (relCount > 0)
-                {
-                    inputStr.Append(readBuf, 0, relCount);
-                    relCount = input.Read(readBuf, 0, readBuf.Length);
-                }
-
-                if (inputStr.Length > 0)
-                {
-                    _InputText = inputStr.ToString();
-                }
-            }
-
-            if (string.IsNullOrEmpty(_InputText))
-            {
-                _WordList = new WordInfo[0];
-            }
-            else
-            {
-                var segment = new Segment();
-                var wordInfos = segment.DoSegment(_InputText, this._options, this._parameters);
-                this._WordList = wordInfos.ToArray();
-            }
+            this._InputText = this.ReadToEnd(base.input);
+            this._WordList = this.DoSegement(this._InputText);
         }
 
         public ICollection<WordInfo> SegmentToWordInfos(String str)
@@ -206,6 +158,42 @@ namespace Lucene.Net.Analysis.PanGu
             }
             var segment = new Segment();
             return segment.DoSegment(str);
+        }
+
+        private string ReadToEnd(TextReader input)
+        {
+            return input.ReadToEnd();
+
+            //char[] readBuf = new char[1024];
+            //int relCount = base.input.Read(readBuf, 0, readBuf.Length);
+            //var inputStr = new StringBuilder(readBuf.Length);
+
+            //while (relCount > 0)
+            //{
+            //    inputStr.Append(readBuf, 0, relCount);
+            //    relCount = input.Read(readBuf, 0, readBuf.Length);
+            //}
+
+            //if (inputStr.Length > 0)
+            //{
+            //    return inputStr.ToString();
+            //}
+
+            //return null;
+        }
+
+        private WordInfo[] DoSegement(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return new WordInfo[0];
+            }
+            else
+            {
+                var segment = new Segment();
+                var wordInfos = segment.DoSegment(input, this._options, this._parameters);
+                return wordInfos.ToArray();
+            }
         }
 
     }
