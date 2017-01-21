@@ -169,7 +169,7 @@ namespace PanGu.Lucene.Analyzer.Tests
         public void SearchTest()
         {
             this.BuidIndex();
-            var keyword = "社交"; // why "社交" failed?
+            var keyword = "社交"; // why "社交" failed? see line 83.
             using (var indexer = DirectoryReader.Open(FSDirectory.Open(this._indexDir)))
             {
                 var searcher = new IndexSearcher(indexer);
