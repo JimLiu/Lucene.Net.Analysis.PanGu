@@ -91,6 +91,8 @@ namespace Lucene.Net.Analysis.PanGu
             if (word != null)
             {
                 var buffer = word.Buffer();
+                termAtt.SetEmpty();
+                termAtt.ResizeBuffer(buffer.Length);
                 termAtt.CopyBuffer(buffer, 0, buffer.Length);
                 offsetAtt.SetOffset(word.StartOffset(), word.EndOffset());
                 typeAtt.Type = word.Type;

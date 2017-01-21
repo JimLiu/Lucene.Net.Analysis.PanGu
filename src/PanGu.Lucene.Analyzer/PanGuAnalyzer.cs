@@ -16,14 +16,18 @@ namespace Lucene.Net.Analysis.PanGu
         private MatchParameter _parameters;
 
         public PanGuAnalyzer()
+            : this(false, null, null)
+        {
+        }
+
+        public PanGuAnalyzer(bool originalResult)
+          : this(originalResult, null, null)
         {
         }
 
         public PanGuAnalyzer(MatchOptions options, MatchParameter parameters)
-            : base()
+            : this(false, options, parameters)
         {
-            _options = options;
-            _parameters = parameters;
         }
 
         /// <summary>
@@ -31,9 +35,11 @@ namespace Lucene.Net.Analysis.PanGu
         /// Does not use only segment
         /// </summary>
         /// <param name="originalResult"></param>
-        public PanGuAnalyzer(bool originalResult)
+        public PanGuAnalyzer(bool originalResult, MatchOptions options, MatchParameter parameters)
         {
             _OriginalResult = originalResult;
+            _options = options;
+            _parameters = parameters;
         }
 
         public override TokenStreamComponents CreateComponents(string fieldName, TextReader reader)
