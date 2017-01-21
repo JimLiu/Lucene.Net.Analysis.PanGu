@@ -10,3 +10,5 @@ Lucene.Net：https://github.com/apache/lucene.net
 盘古分词：http://pangusegment.codeplex.com/ 
 
 主要依赖项的NuGet包暂时寄存在本项目Release下。
+
+Special thanks to: https://github.com/conniey/lucenenet, a kind man from Microsoft who made the .NET Core version of Special thanks to: https://github.com/conniey/lucenenet, a kind man from Microsoft who made the .NET Core version of Luccen.Net.
