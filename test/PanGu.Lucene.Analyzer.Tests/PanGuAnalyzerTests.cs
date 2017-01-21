@@ -79,7 +79,8 @@ namespace PanGu.Lucene.Analyzer.Tests
                     if (!text.StartsWith(@"//"))
                     {
                         var doc = new Document();
-                        doc.Add(new Field("body", text, Field.Store.YES, Field.Index.ANALYZED));
+                        //doc.Add(new Field("body", text, Field.Store.YES, Field.Index.ANALYZED));
+                        doc.Add(new TextField("body", text, Field.Store.YES));
                         iw.AddDocument(doc, this.CreateAnalyzer()); // TODO: If not create a new analyzer, result will be empty.
                         Console.WriteLine("Indexed doc: {0}", text);
                         var keywords = this.InvokeAnalyzer(text);
