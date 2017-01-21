@@ -1,6 +1,6 @@
 ﻿{
   "title": "PanGu.Lucene.Analyzer",
-  "version": "1.0.0-*",
+  "version": "1.0.0-alpha",
   "description": ".NET Core version of PanGu.Lucene.Analyzer.",
   "authors": [ "yuleyule66", "LonghronShen" ],
 
