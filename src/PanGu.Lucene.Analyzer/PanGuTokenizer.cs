@@ -23,7 +23,7 @@ namespace Lucene.Net.Analysis.PanGu
         private WordInfo[] _WordList;
         private int _Position = -1; //词汇在缓冲中的位置.
         private bool _OriginalResult = false;
-        string _InputText;
+        private string _InputText;
 
         // this tokenizer generates three attributes:
         // offset, positionIncrement and type
@@ -90,8 +90,8 @@ namespace Lucene.Net.Analysis.PanGu
             Token word = Next();
             if (word != null)
             {
-                var buffer = word.Buffer();
-                termAtt.CopyBuffer(buffer, 0, buffer.Length);
+                var buffer = word.ToString();
+                termAtt.SetEmpty().Append(buffer);
                 offsetAtt.SetOffset(word.StartOffset(), word.EndOffset());
                 typeAtt.Type = word.Type;
                 return true;
