@@ -14,5 +14,5 @@ Lucene.Net：https://github.com/apache/lucene.net
 主要依赖项的NuGet包暂时寄存在本项目Release下。
 
 Special thanks to: 
-https://github.com/conniey/lucenenet, a kind man from Microsoft who made the .NET Core version of Luccen.Net.
-https://github.com/ouraspnet/OurAspNet.Lucene.Net.Analysis.PanGu, a kind man who made the .NET Core version of PanGu lib.
+* https://github.com/conniey/lucenenet, a kind man from Microsoft who made the .NET Core version of Luccen.Net.
+* https://github.com/ouraspnet/OurAspNet.Lucene.Net.Analysis.PanGu, a kind man who made the .NET Core version of PanGu lib.
