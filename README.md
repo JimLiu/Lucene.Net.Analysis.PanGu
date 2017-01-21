@@ -8,8 +8,8 @@ Lucene.Net.Analysis.PanGu
 使用说明
 =========================
 
-Lucene.Net：https://github.com/apache/lucene.net
-盘古分词：http://pangusegment.codeplex.com/ 
+* Lucene.Net： https://github.com/apache/lucene.net
+* 盘古分词： http://pangusegment.codeplex.com/ 
 
 主要依赖项的NuGet包暂时寄存在本项目Release下。
 
