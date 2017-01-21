@@ -105,7 +105,7 @@ namespace PanGu.Lucene.Analyzer.Tests
                     while (hasNext)
                     {
                         var ita = ts.GetAttribute<ICharTermAttribute>();
-                        var term = ita.ToString().Trim().Replace("\0", "");
+                        var term = ita.ToString();
                         Console.WriteLine(term);
                         list.Add(term);
                         hasNext = ts.IncrementToken();

@@ -90,10 +90,8 @@ namespace Lucene.Net.Analysis.PanGu
             Token word = Next();
             if (word != null)
             {
-                var buffer = word.Buffer();
-                termAtt.SetEmpty();
-                termAtt.ResizeBuffer(buffer.Length);
-                termAtt.CopyBuffer(buffer, 0, buffer.Length);
+                var buffer = word.ToString();
+                termAtt.SetEmpty().Append(buffer);
                 offsetAtt.SetOffset(word.StartOffset(), word.EndOffset());
                 typeAtt.Type = word.Type;
                 return true;
