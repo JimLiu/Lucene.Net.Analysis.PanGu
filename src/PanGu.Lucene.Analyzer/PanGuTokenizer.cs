@@ -23,7 +23,7 @@ namespace Lucene.Net.Analysis.PanGu
         private WordInfo[] _WordList;
         private int _Position = -1; //词汇在缓冲中的位置.
         private bool _OriginalResult = false;
-        string _InputText;
+        private string _InputText;
 
         // this tokenizer generates three attributes:
         // offset, positionIncrement and type
