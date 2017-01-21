@@ -80,10 +80,10 @@ namespace PanGu.Lucene.Analyzer.Tests
                     {
                         var doc = new Document();
                         doc.Add(new Field("body", text, Field.Store.YES, Field.Index.ANALYZED));
-                        iw.AddDocument(doc, this.CreateAnalyzer());
+                        iw.AddDocument(doc, this.CreateAnalyzer()); // TODO: If not create a new analyzer, result will be empty.
                         Console.WriteLine("Indexed doc: {0}", text);
                         var keywords = this.InvokeAnalyzer(text);
-                        Console.WriteLine($"Keywords: {String.Join(", ", keywords)}.");
+                        Console.WriteLine($"Keywords: {string.Join(", ", keywords)}.");
                     }
                 }
                 iw.Commit();
@@ -123,47 +123,47 @@ namespace PanGu.Lucene.Analyzer.Tests
             Assert.All(list, x => expectedResult.Contains(x));
         }
 
-        //[Fact]
-        //public void PanGuAnalyzerTest()
-        //{
-        //    foreach (string text in this._samples)
-        //    {
-        //        if (!text.StartsWith(@"//"))
-        //        {
-        //            var keywords = this.InvokeAnalyzer(text);
-        //            Console.WriteLine($"Keywords: {String.Join(", ", keywords)}.");
-        //        }
-        //    }
-        //}
+        [Fact]
+        public void PanGuAnalyzerTest()
+        {
+            foreach (string text in this._samples)
+            {
+                if (!text.StartsWith(@"//"))
+                {
+                    var keywords = this.InvokeAnalyzer(text);
+                    Console.WriteLine($"Keywords: {string.Join(", ", keywords)}.");
+                }
+            }
+        }
 
-        //[Fact]
-        //public void PanGuAnalyzerTest1()
-        //{
-        //    this.TestAnalyzer("同义词输出功能一般用于对搜索字符串的分词，不建议在索引时使用", new List<string>() {
-        //        "同义词", "输出", "功能", "一般", "用于",
-        //        "对", "搜索", "字符串", "的", "分词",
-        //        "不", "建议", "在", "索引", "时", "使用"
-        //    });
-        //}
+        [Fact]
+        public void PanGuAnalyzerTest1()
+        {
+            this.TestAnalyzer("同义词输出功能一般用于对搜索字符串的分词，不建议在索引时使用", new List<string>() {
+                "同义词", "输出", "功能", "一般", "用于",
+                "对", "搜索", "字符串", "的", "分词",
+                "不", "建议", "在", "索引", "时", "使用"
+            });
+        }
 
-        //[Fact]
-        //public void PanGuAnalyzerTest2()
-        //{
-        //    // See output, the PanGu lib not reproduce the result as expected.
-        //    this.TestAnalyzer("上海东方明珠", new List<string>() {
-        //        "上海", "东方", "明珠",
-        //        //"上海东方", "东方明珠",
-        //    });
-        //}
+        [Fact]
+        public void PanGuAnalyzerTest2()
+        {
+            // See output, the PanGu lib not reproduce the result as expected.
+            this.TestAnalyzer("上海东方明珠", new List<string>() {
+                "上海", "东方", "明珠",
+                //"上海东方", "东方明珠",
+            });
+        }
 
-        //[Fact]
-        //public void PanGuAnalyzerTest3()
-        //{
-        //    this.TestAnalyzer("【AppsFlyer：社交平台口碑营销效果最佳", new List<string>() {
-        //        "AppsFlyer", "社交", "平台", "口碑",
-        //        "营销", "效果", "最佳",
-        //    });
-        //}
+        [Fact]
+        public void PanGuAnalyzerTest3()
+        {
+            this.TestAnalyzer("【AppsFlyer：社交平台口碑营销效果最佳", new List<string>() {
+                "AppsFlyer", "社交", "平台", "口碑",
+                "营销", "效果", "最佳",
+            });
+        }
 
         [Fact]
         public void SearchTest()
