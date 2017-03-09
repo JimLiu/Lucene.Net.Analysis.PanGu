@@ -35,7 +35,8 @@ namespace PanGu.Dict
 
         public DictionaryLoader(string dictDir)
         {
-            _DictionaryDir = Framework.Path.AppendDivision(dictDir, '\\');
+            _DictionaryDir = dictDir.EndsWith(System.IO.Path.DirectorySeparatorChar.ToString()) ?
+                dictDir : Framework.Path.AppendDivision(dictDir, System.IO.Path.DirectorySeparatorChar);
             _MainDictLastTime = GetLastTime("Dict.dct");
             _ChsSingleLastTime = GetLastTime(Dict.ChsName.ChsSingleNameFileName);
             _ChsName1LastTime = GetLastTime(Dict.ChsName.ChsDoubleName1FileName);
@@ -203,7 +204,7 @@ namespace PanGu.Dict
                 {
                 }
 
-                
+
             }
         }
     }
