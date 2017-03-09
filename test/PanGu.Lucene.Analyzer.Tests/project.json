@@ -5,7 +5,7 @@
   "dependencies": {
     "xunit": "2.2.0-beta2-build3300",
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
-    "PanGu.Lucene.Analyzer": "1.0.1-alpha",
+    "PanGu.Lucene.Analyzer": "1.0.2-alpha",
     "Lucene.Net.Expressions": "4.8.0-alpha",
     "Lucene.Net.Core": "4.8.0-alpha",
     "Lucene.Net.Analysis.Common": "4.8.0-alpha",
