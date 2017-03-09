@@ -1,6 +1,6 @@
 {
   "title": "PanGu.Core",
-  "version": "1.0.2-*",
+  "version": "1.0.3-*",
   "description": ".NET Core version of PanGu.",
   "authors": [ "yuleyule66", "LonghronShen" ],
 

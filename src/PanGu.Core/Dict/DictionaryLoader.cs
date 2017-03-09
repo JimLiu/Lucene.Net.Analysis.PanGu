@@ -30,7 +30,15 @@ namespace PanGu.Dict
 
         private DateTime GetLastTime(string fileName)
         {
-            return System.IO.File.GetLastWriteTime(DictionaryDir + fileName);
+            try
+            {
+                // The function will raise an exception when path not exist on Linux.
+                return System.IO.File.GetLastWriteTime(DictionaryDir + fileName);
+            }
+            catch
+            {
+                return default(DateTime);
+            }
         }
 
         public DictionaryLoader(string dictDir)
