@@ -1,5 +1,5 @@
 ﻿using Lucene.Net.Analysis.PanGu;
-using Lucene.Net.Analysis.Tokenattributes;
+using Lucene.Net.Analysis.TokenAttributes;
 using Lucene.Net.Codecs;
 using Lucene.Net.Documents;
 using Lucene.Net.Index;
@@ -67,7 +67,7 @@ namespace PanGu.Lucene.Analyzer.Tests
         {
             var codecs = Codec.AvailableCodecs();
             var options = new IndexWriterConfig(LVERSION.LUCENE_48, null);
-            options.SetOpenMode(IndexWriterConfig.OpenMode_e.CREATE);
+            options.OpenMode = OpenMode.CREATE;
             //options.SetCodec(Codec.ForName(""));
             using (var iw = new IndexWriter(FSDirectory.Open(this._indexDir), options))
             {
@@ -100,7 +100,7 @@ namespace PanGu.Lucene.Analyzer.Tests
                 var input = useCase;
                 using (var reader = new StringReader(input))
                 {
-                    var ts = analyzer.TokenStream(input, reader);
+                    var ts = analyzer.GetTokenStream(input, reader);
                     ts.Reset();
                     var hasNext = ts.IncrementToken();
                     while (hasNext)

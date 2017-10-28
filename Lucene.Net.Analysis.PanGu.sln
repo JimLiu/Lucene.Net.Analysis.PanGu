@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27009.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{556CD4FF-BAE6-4187-99A4-662BC4E0CF88}"
 EndProject
@@ -9,7 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{951EE5AD-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{52A638F1-E4B4-49FE-8346-30D6ED586463}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		license.txt = license.txt
 		README.md = README.md
 	EndProjectSection
@@ -18,13 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{7C903CBE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PanGu.DictionaryConverter", "tools\PanGu.DictionaryConverter\PanGu.DictionaryConverter.csproj", "{C6E15A4F-C2EF-4B94-9910-FA90796E695F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PanGu.HighLight", "src\PanGu.HighLight\PanGu.HighLight.xproj", "{D88A2F2F-FF65-43DF-A9AA-3EA0C32EFE02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PanGu.HighLight", "src\PanGu.HighLight\PanGu.HighLight.csproj", "{D88A2F2F-FF65-43DF-A9AA-3EA0C32EFE02}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PanGu.Core", "src\PanGu.Core\PanGu.Core.xproj", "{02645FBE-8909-40D2-B0D2-0B4E4C5972B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PanGu.Core", "src\PanGu.Core\PanGu.Core.csproj", "{02645FBE-8909-40D2-B0D2-0B4E4C5972B4}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PanGu.Lucene.Analyzer", "src\PanGu.Lucene.Analyzer\PanGu.Lucene.Analyzer.xproj", "{79DF2146-EC10-4DCE-8621-2F488B2BBBEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PanGu.Lucene.Analyzer", "src\PanGu.Lucene.Analyzer\PanGu.Lucene.Analyzer.csproj", "{79DF2146-EC10-4DCE-8621-2F488B2BBBEE}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PanGu.Lucene.Analyzer.Tests", "test\PanGu.Lucene.Analyzer.Tests\PanGu.Lucene.Analyzer.Tests.xproj", "{E3AFE142-8496-4F78-9CBA-79BB0875B53A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PanGu.Lucene.Analyzer.Tests", "test\PanGu.Lucene.Analyzer.Tests\PanGu.Lucene.Analyzer.Tests.csproj", "{E3AFE142-8496-4F78-9CBA-79BB0875B53A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,5 +61,8 @@ Global
 		{02645FBE-8909-40D2-B0D2-0B4E4C5972B4} = {556CD4FF-BAE6-4187-99A4-662BC4E0CF88}
 		{79DF2146-EC10-4DCE-8621-2F488B2BBBEE} = {556CD4FF-BAE6-4187-99A4-662BC4E0CF88}
 		{E3AFE142-8496-4F78-9CBA-79BB0875B53A} = {951EE5AD-1DAE-49ED-9A09-3B5EC0E4462A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC8C9A14-3035-4F2B-98A8-4AA97A623425}
 	EndGlobalSection
 EndGlobal

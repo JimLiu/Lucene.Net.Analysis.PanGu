@@ -1,4 +1,4 @@
-using Lucene.Net.Analysis.Tokenattributes;
+using Lucene.Net.Analysis.TokenAttributes;
 using PanGu;
 using PanGu.Match;
 using System;
@@ -92,7 +92,7 @@ namespace Lucene.Net.Analysis.PanGu
             {
                 var buffer = word.ToString();
                 termAtt.SetEmpty().Append(buffer);
-                offsetAtt.SetOffset(word.StartOffset(), word.EndOffset());
+                offsetAtt.SetOffset(word.StartOffset, word.EndOffset);
                 typeAtt.Type = word.Type;
                 return true;
             }
@@ -146,7 +146,7 @@ namespace Lucene.Net.Analysis.PanGu
         {
             base.Reset();
 
-            this._InputText = this.ReadToEnd(base.input);
+            this._InputText = this.ReadToEnd(base.m_input);
             this._WordList = this.DoSegement(this._InputText);
         }
 
