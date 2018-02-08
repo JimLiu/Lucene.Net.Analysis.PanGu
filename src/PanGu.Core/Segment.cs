@@ -340,7 +340,7 @@ namespace PanGu
                         cur = cur.Next;
                         result.Remove(lst);
                         continue;
-                    }
+                     }
                 }
 
                 switch (cur.Value.WordType)

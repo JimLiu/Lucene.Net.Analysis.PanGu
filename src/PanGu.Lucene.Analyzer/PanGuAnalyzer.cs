@@ -1,6 +1,7 @@
 using Lucene.Net.Analysis.Core;
 using PanGu.Match;
 using System.IO;
+using Lucene.Net.Analysis.TokenAttributes;
 
 using LVERSION = global::Lucene.Net.Util.LuceneVersion;
 
@@ -32,7 +33,7 @@ namespace Lucene.Net.Analysis.PanGu
         }
 
         public PanGuAnalyzer(MatchOptions options, MatchParameter parameters)
-            : this(false, options, parameters, null)
+            : this(false, options, parameters, Lucene.Net.Analysis.Analyzer.GLOBAL_REUSE_STRATEGY)
         {
         }
 
@@ -71,6 +72,11 @@ namespace Lucene.Net.Analysis.PanGu
         {
             var result = new PanGuTokenizer(reader, _originalResult, _options, _parameters);
             var finalStream = (TokenStream)new LowerCaseFilter(LVERSION.LUCENE_48, result);
+
+          
+            finalStream.AddAttribute<ICharTermAttribute>();
+            finalStream.AddAttribute<IOffsetAttribute>();
+
             return new TokenStreamComponents(result, finalStream);
         }
 
