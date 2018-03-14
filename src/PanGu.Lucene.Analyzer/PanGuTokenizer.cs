@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Lucene.Net.Analysis;
 
 namespace Lucene.Net.Analysis.PanGu
 {
@@ -42,7 +43,7 @@ namespace Lucene.Net.Analysis.PanGu
             {
                 if (!_Inited)
                 {
-                    Segment.Init(fileName);
+                    Segment.Init( );
                     _Inited = true;
                 }
             }
@@ -97,6 +98,7 @@ namespace Lucene.Net.Analysis.PanGu
                 return true;
             }
             End();
+            this.Dispose();
             return false;
         }
 
@@ -148,6 +150,7 @@ namespace Lucene.Net.Analysis.PanGu
 
             this._InputText = this.ReadToEnd(base.m_input);
             this._WordList = this.DoSegement(this._InputText);
+            this._Position = -1;
         }
 
         public ICollection<WordInfo> SegmentToWordInfos(String str)

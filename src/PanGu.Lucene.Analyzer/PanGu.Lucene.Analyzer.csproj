@@ -1,35 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Description>.NET Core version of PanGu.Lucene.Analyzer.</Description>
-    <AssemblyTitle>PanGu.Lucene.Analyzer</AssemblyTitle>
-    <VersionPrefix>1.1.0-alpha</VersionPrefix>
-    <Authors>yuleyule66;LonghronShen</Authors>
-    <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
-    <AssemblyName>PanGu.Lucene.Analyzer</AssemblyName>
-    <PackageId>PanGu.Lucene.Analyzer</PackageId>
-    <PackageTags>PanGu;Lucene;.NET;Core;Analysis</PackageTags>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/ouraspnet/OurAspNet.Lucene.Net.Analysis.PanGu.git</RepositoryUrl>
-    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard2.0' ">$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
-    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard2.0' ">2.0.0</NetStandardImplicitPackageVersion>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+ <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00005" />
-    <PackageReference Include="PanGu.Core" Version="1.0.3" />
   </ItemGroup>
 
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
-  </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PanGu.Core\PanGu.Core.csproj" />
+  </ItemGroup>
 </Project>
