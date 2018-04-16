@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -43,17 +43,17 @@ namespace PanGu.Dict
 
             //没有明显歧异的姓氏
             "赵", "肖", "孙", "李",
-            "吴", "郑", "冯", "陈", 
-            "褚", "卫", "蒋", "沈", 
-            "韩", "杨", "朱", "秦", 
-            "尤", "许", "何", "吕", 
+            "吴", "郑", "冯", "陈",
+            "褚", "卫", "蒋", "沈",
+            "韩", "杨", "朱", "秦",
+            "尤", "许", "何", "吕",
             "施", "桓", "孔", "曹",
             "严", "华", "金", "魏",
             "陶", "姜", "戚", "谢",
             "邹", "喻", "柏", "窦",
             "苏", "潘", "葛", "奚",
             "范", "彭", "鲁", "韦",
-            "昌", "俞", "袁", "酆", 
+            "昌", "俞", "袁", "酆",
             "鲍", "唐", "费", "廉",
             "岑", "薛", "贺", "倪",
             "滕", "殷", "罗", "毕",
@@ -74,7 +74,7 @@ namespace PanGu.Dict
             "崔", "龚", "嵇", "邢",
             "滑", "裴", "陆", "荣",
             "荀", "惠", "甄", "芮",
-            "羿", "储", "靳", "汲", 
+            "羿", "储", "靳", "汲",
             "邴", "糜", "隗", "侯",
             "宓", "蓬", "郗", "仲",
             "栾", "钭", "历", "戎",
@@ -178,7 +178,8 @@ namespace PanGu.Dict
 
         public void LoadChsName(string dictPath)
         {
-            dictPath = Framework.Path.AppendDivision(dictPath, '\\');
+            dictPath = dictPath.EndsWith(System.IO.Path.DirectorySeparatorChar.ToString()) ?
+               dictPath : Framework.Path.AppendDivision(dictPath, System.IO.Path.DirectorySeparatorChar);
 
             LoadNameDict(dictPath + ChsSingleNameFileName, ref _SingleNameDict);
             LoadNameDict(dictPath + ChsDoubleName1FileName, ref _DoubleName1Dict);
@@ -193,7 +194,7 @@ namespace PanGu.Dict
 
             if (cur > text.Length - 2)
             {
-                return null; 
+                return null;
             }
 
             char f1 = text[cur];

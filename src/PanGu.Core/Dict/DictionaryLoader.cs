@@ -30,12 +30,21 @@ namespace PanGu.Dict
 
         private DateTime GetLastTime(string fileName)
         {
-            return System.IO.File.GetLastWriteTime(DictionaryDir + fileName);
+            try
+            {
+                // The function will raise an exception when path not exist on Linux.
+                return System.IO.File.GetLastWriteTime(DictionaryDir + fileName);
+            }
+            catch
+            {
+                return default(DateTime);
+            }
         }
 
         public DictionaryLoader(string dictDir)
         {
-            _DictionaryDir = Framework.Path.AppendDivision(dictDir, '\\');
+            _DictionaryDir = dictDir.EndsWith(System.IO.Path.DirectorySeparatorChar.ToString()) ?
+                dictDir : Framework.Path.AppendDivision(dictDir, System.IO.Path.DirectorySeparatorChar);
             _MainDictLastTime = GetLastTime("Dict.dct");
             _ChsSingleLastTime = GetLastTime(Dict.ChsName.ChsSingleNameFileName);
             _ChsName1LastTime = GetLastTime(Dict.ChsName.ChsDoubleName1FileName);
@@ -203,7 +212,7 @@ namespace PanGu.Dict
                 {
                 }
 
-                
+
             }
         }
     }
